@@ -1,6 +1,6 @@
-# Jarkom-Modul-2-A07-2023
+# Jarkom-Modul-3-A07-2023
 
-**Praktikum Jaringan Komputer Modul 2 Tahun 2023**
+**Praktikum Jaringan Komputer Modul 3 Tahun 2023**
 
 ## Author
 
