@@ -74,6 +74,7 @@ iface eth4 inet static
 	netmask 255.255.255.0
 
 ```
+
 - **Revolte Client**
 
 ```
@@ -111,7 +112,6 @@ iface eth0 inet dhcp
 hwaddress ether 22:12:33:c2:ec:b7
 
 ```
-
 
 - **Lawine PHP Worker**
 
@@ -239,7 +239,6 @@ iface eth0 inet static
 
 > Register domain berupa riegel.canyon.yyy.com untuk worker Laravel dan granz.channel.yyy.com untuk worker PHP (0) mengarah pada worker yang memiliki IP [prefix IP].x.1.
 
-
 ### Scripts
 
 1. Lakukan Instalasi `bind9` sebagai berikut:
@@ -338,7 +337,6 @@ service bind9 start
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/3e2157f8-0b87-4f95-a62c-f04a0902fa24)
 
-
 Selamat 🎉, proses registrasi domain telah berhasil.
 
 ## Soal 1
@@ -377,7 +375,7 @@ OPTIONS=""
 ```
 
 - Konfigurasi tersebut digunakan untuk mengaktifkan `IP Forwarding`
-> Apa itu IP Forwarding? IP Forwarding adalah fitur yang memungkinkan router untuk meneruskan paket dari suatu jaringan ke jaringan lainnya. Router memiliki minimal dua interface jaringan, misal interface A terhubung ke jaringan A dan interface B terhubung ke jaringan B. Ketika ada paket IP masuk dari jaringan A menuju ke jaringan B, maka router akan meneruskan (forward) paket tersebut dari interface A ke interface B. Demikian pula sebaliknya.
+  > Apa itu IP Forwarding? IP Forwarding adalah fitur yang memungkinkan router untuk meneruskan paket dari suatu jaringan ke jaringan lainnya. Router memiliki minimal dua interface jaringan, misal interface A terhubung ke jaringan A dan interface B terhubung ke jaringan B. Ketika ada paket IP masuk dari jaringan A menuju ke jaringan B, maka router akan meneruskan (forward) paket tersebut dari interface A ke interface B. Demikian pula sebaliknya.
 
 4. Restart DHCP relay dengan script berikut
 
@@ -388,13 +386,11 @@ service isc-dhcp-relay restart
 
 Selamat 🎉, konfigurasi DHCP Relay telah selesai!
 
-
 ## Soal 2
 
 > Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.16 - [prefix IP].3.32 dan [prefix IP].3.64 - [prefix IP].3.80 (2)
 
 ### Scripts
-
 
 1. lakukan instalasi `isc-dhcp-server` pada `Himmel DHCP Server`
 
@@ -436,7 +432,6 @@ INTERFACESv4=\"eth0\"
 
 - Coba perhatikan topologi yang telah kalian buat. kita config `INTERFACESv4="eth0"` maka kita akan memilih interface eth0 untuk diberikan layanan DHCP.
 
-
 3. tambahkan konfigurasi berikut pada `/etc/dhcp/dhcpd.conf` untuk mengconfig ip range dari client yang mendapatkan layanan DHCP
 
 ```sh
@@ -461,7 +456,6 @@ subnet 192.172.3.0 netmask 255.255.255.0 {
 ## Soal 3
 
 > Client yang melalui Switch4 mendapatkan range IP dari [prefix IP].4.12 - [prefix IP].4.20 dan [prefix IP].4.160 - [prefix IP].4.168 (3)
-
 
 ### Scripts
 
@@ -556,11 +550,9 @@ subnet 192.172.4.0 netmask 255.255.255.0 {
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/17822a57-e033-403a-bfba-07688644abb3)
 
-
 - **Stark Client**
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/ea24f618-eb78-4456-bc46-d1b0ee50622e)
-
 
 ## Soal 6
 
@@ -621,6 +613,7 @@ echo '<!DOCTYPE html>
 echo 'nameserver 192.172.1.3' > /etc/resolv.conf
 
 ```
+
 - **Liene PHP Worker**
 
 ```sh
@@ -691,6 +684,7 @@ echo '<!DOCTYPE html>
 </html>' > /var/www/modul-3/index.php
 
 ```
+
 4. Tambahkan ip dari dns server ke nameserver pada masing-masing PHP Worker
 
 ```sh
@@ -746,7 +740,6 @@ service php7.3-fpm start
 
 
 ```
-
 
 7. Lakukan instalasi nginx dan apache2-utils pada `Eisen Load Balancer`
 
@@ -821,15 +814,13 @@ rm /etc/nginx/sites-enabled/default
 service nginx restart
 ```
 
-## Bukti 
+## Bukti
 
 1. Lakukan testing pada salah satu client yaitu `Revolte Client`
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/f3073934-fc4a-4a76-9e58-bfd5eb8f4e0c)
 
-
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/4960f073-704e-4012-9377-8474df43954a)
-
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/4da6ab57-4c36-4a47-9537-4e5f15cad6e4)
 
@@ -861,11 +852,9 @@ ab -n 1000 -c 100 http://granz.channel.com/
 
 ![unnamed](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/aa7e7057-1a71-44ee-bd0d-b2f4fd4f4121)
 
-
 ![unnamed (1)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/5a522c10-4a01-4f31-b699-84b94a8205de)
 
 ![unnamed (2)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/29f78f3c-526d-47a3-a711-0db38240422d)
-
 
 ## Soal 8
 
@@ -889,9 +878,7 @@ ab -n 1000 -c 100 http://granz.channel.com/
 
 ![unnamed (3)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/669456ef-b7bb-4d00-ba66-487106872528)
 
-
 ![unnamed (4)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/3e32206c-82c1-49e3-9fb3-f0a730067291)
-
 
 ![unnamed (5)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/cbd03f7c-3f16-4be6-b23d-9657563479fe)
 
@@ -921,9 +908,7 @@ ab -n 200 -c 10 http://granz.channel.a07.com/
 
 ![unnamed (8)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/289d96bc-7da0-4bca-b9c8-244683cf744a)
 
-
 3. Algoritma IP Hash:
-
 
 ```sh
  upstream granz  {
@@ -943,14 +928,11 @@ ab -n 200 -c 10 http://granz.channel.a07.com/
 
 ```
 
-
 ![unnamed (9)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/fe5ff44a-d002-44be-98da-4e0db232f1cf)
-
 
 ![unnamed (10)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/cde891d8-7071-466b-b0a5-6563360f5e61)
 
 ![unnamed (11)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/096179b6-2579-46cd-9b0a-38e131b5e1b0)
-
 
 3. Algoritma Generic Hash:
 
@@ -972,15 +954,11 @@ ab -n 200 -c 10 http://granz.channel.a07.com/
 
 ```
 
-
 ![unnamed (12)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/ef61d3c9-66ad-4ca8-9c7c-e02135710aab)
-
 
 ![unnamed (13)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/df8d1744-4514-491f-a00c-62700a635df6)
 
-
 ![unnamed (14)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/968e2ec4-5542-4cfb-9418-3a5de5d9fa40)
-
 
 4. Algoritma Weighted Round Robin:
 
@@ -1007,13 +985,11 @@ ab -n 200 -c 10 http://granz.channel.a07.com/
 
 ![unnamed (17)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/9de9d8aa-4889-481d-937f-f1001233215e)
 
-
 ### Hasil Grafik
 
 ![unnamed (18)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/b6a041be-7667-4bd6-92df-e44fec6fedbb)
 
 ![unnamed (19)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/f0f04005-3444-492a-9d8a-59b48cd4553c)
-
 
 ## Soal 9
 
@@ -1082,13 +1058,11 @@ ab -n 100 -c 10 http://granz.channel.a07.com/
 
 ![unnamed (22)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/cccf1a3e-6db7-4b61-979d-fce8c3ca745a)
 
-
 ### Hasil Grafik
 
 ![unnamed (23)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/7031343e-a739-4c56-83a5-2453591040d9)
 
 ![unnamed (24)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/5b343d16-1969-4bc9-9bc4-425ac0ef0fd4)
-
 
 ## Soal 10
 
@@ -1147,7 +1121,6 @@ htpasswd -c -b /etc/nginx/rahasiakita/.htpasswd netics ajka07
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/c60769d8-fc5b-4d5d-b673-33c605ff088c)
 
-
 - Masukkan password
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/93581d78-37b5-406a-a2b2-77c592818949)
@@ -1159,7 +1132,6 @@ htpasswd -c -b /etc/nginx/rahasiakita/.htpasswd netics ajka07
 ## Soal 11
 
 > Lalu buat untuk setiap request yang mengandung /its akan di proxy passing menuju halaman https://www.its.ac.id. (11) hint: (proxy_pass)
-
 
 ### Scripts
 
@@ -1205,7 +1177,6 @@ lynx granz.channel.a07.com/its
 ```
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/0a77ed0a-7507-400f-9478-67b27d91ee60)
-
 
 ## Soal 12
 
@@ -1277,7 +1248,6 @@ host Stark{
 
 ```
 
-
 ### Result
 
 - **Revolte Client**
@@ -1292,20 +1262,17 @@ host Stark{
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/17822a57-e033-403a-bfba-07688644abb3)
 
-
 - **Stark Client**
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/ea24f618-eb78-4456-bc46-d1b0ee50622e)
-
 
 ## Soal 13
 
 > Semua data yang diperlukan, diatur pada Denken dan harus dapat diakses oleh Frieren, Flamme, dan Fern. (13)
 
-
 ### Scripts
 
-1. Lakukan instalasi `mariadb-server`  
+1. Lakukan instalasi `mariadb-server`
 
 ```sh
 
@@ -1349,7 +1316,6 @@ mysql < ~/script.sql
 ### Results
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/96058ee3-0b40-4e04-88b4-e84c9784bbd0)
-
 
 ## Soal 14
 
@@ -1633,7 +1599,306 @@ service php8.0-fpm start
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/83d56801-f5a6-47f4-86aa-66cfb042f9e4)
 
-
-3. Lakukan  `lynx riegel.canyon.a07.com`
+3. Lakukan `lynx riegel.canyon.a07.com`
 
 ![image](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/f5c6f89f-3459-4f8b-9287-8c7103191e8e)
+
+## Soal 15
+
+> Riegel Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Lakukan terhadap endpoint POST /auth/register
+
+### Scripts
+
+1. Jalankan script berikut untuk melakukan testing ke salah satu worker. Kami memilih untuk diarahkan ke 192.172.4.1 (Frieren)
+
+```sh
+ab -n 100 -c 10 -T 'application/json' -p input.json -g reg-data.data http://192.172.4.1/api/auth/register
+```
+
+### Results
+
+![Result (15)](https://cdn.discordapp.com/attachments/1174671276728651806/1174671603553017907/image.png?ex=6568712e&is=6555fc2e&hm=6b6054024165758ae944281da3960d98be9374abfe96ea97c9178c7ffc454088&)
+
+Bisa dilihat dari hasil benchmarking di atas bahwa terdapat 40 dari 100 requests yang gagal diproses karena kurangnya worker terhadap workload yang ada.
+
+## Soal 16
+
+> Riegel Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Lakukan terhadap endpoint POST /auth/login
+
+### Scripts
+
+1. Jalankan script berikut untuk melakukan testing ke salah satu worker. Kami memilih untuk diarahkan ke 192.172.4.1 (Frieren)
+
+```sh
+ab -n 100 -c 10 -T 'application/json' -p input.json -g log-data.data http://192.172.4.1/api/auth/login
+```
+
+### Results
+
+![Result (16)](https://cdn.discordapp.com/attachments/1174671276728651806/1174671300023832616/image.png?ex=656870e6&is=6555fbe6&hm=f6a5f2c32aa56f3fc6cf2dc9426acdc7c0910bbdfcf638783772f3a6c0c4f68d&)
+
+Bisa dilihat dari hasil benchmarking di atas bahwa terdapat 39 dari 100 requests yang gagal diproses karena kurangnya worker terhadap workload yang ada.
+
+## Soal 17
+
+> Riegel Channel memiliki beberapa endpoint yang harus ditesting sebanyak 100 request dengan 10 request/second. Tambahkan response dan hasil testing pada grimoire. Lakukan terhadap endpoint GET /me
+
+### Scripts
+
+1. Jalankan script berikut untuk melakukan testing ke salah satu worker. Kami memilih untuk diarahkan ke 192.172.4.1 (Frieren)
+
+```sh
+tkn=$(cat cur-token.txt); ab -n 100 -c 10 -H "Authorization: Bearer $tkn" http://192.172.4.1/api/me
+```
+
+### Results
+
+![Result (17)](https://cdn.discordapp.com/attachments/1174671276728651806/1174672082894848111/image.png?ex=656871a0&is=6555fca0&hm=aa4c9988bab121fc8273b09adbef716768d3540a059690cbade2d62b398060e7&)
+
+Bisa dilihat dari hasil benchmarking di atas bahwa terdapat 41 dari 100 requests yang gagal diproses karena kurangnya worker terhadap workload yang ada.
+
+## Soal 18
+
+> Untuk memastikan ketiganya bekerja sama secara adil untuk mengatur Riegel Channel maka implementasikan Proxy Bind pada Eisen untuk mengaitkan IP dari Frieren, Flamme, dan Fern
+
+### Scripts
+
+1. Tambahkan konfigurasi nginx berikut pada `/etc/nginx/sites-available/lb-proxy`
+
+```nginx
+upstream riegel {
+        server 192.172.4.1;
+        server 192.172.4.2;
+        server 192.172.4.3;
+ }
+
+server {
+        listen 80;
+        server_name riegel.canyon.a07.com www.riegel.canyon.a07.com;
+
+        allow 192.172.3.69;
+        allow 192.172.3.70;
+        allow 192.172.4.167;
+        allow 192.172.4.168;
+        deny all;
+
+        location / {
+                proxy_pass http://riegel;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+        }
+
+        location /its {
+                proxy_pass https://its.ac.id;
+                proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+        location ~ /\.ht {
+            deny all;
+        }
+
+        error_log /var/log/nginx/lb_error2.log;
+        access_log /var/log/nginx/lb_access2.log;
+}
+```
+
+2. Restart nginx
+
+```sh
+service nginx restart
+```
+
+### Results
+
+1. Dari salah satu client, lakukan lynx terhadap http://riegel.canyon.a07.com dengan script berikut,
+
+```sh
+lynx riegel.canyon.a07.com
+```
+
+![Result (18)](https://cdn.discordapp.com/attachments/1174671276728651806/1175704169231958107/image.png?ex=656c32d5&is=6559bdd5&hm=9dd70aadf356961dca8304b9e45879302dd66c84c764e6b3efde32f213768886&)
+
+## Soal 19
+
+> Untuk meningkatkan performa dari Worker, coba implementasikan PHP-FPM pada Frieren, Flamme, dan Fern. Untuk testing kinerja naikkan pm.max_children, pm.start_servers, pm.min_spare_servers, pm.max_spare_servers sebanyak tiga percobaan dan lakukan testing sebanyak 100 request dengan 10 request/second kemudian berikan hasil analisisnya pada Grimoire.
+
+### Scripts
+
+1. Buat 4 file .sh di setiap worker Laravel (Frieren, Flamme, Fern) yang dapat mengganti nilai-nilai dari setiap atribut pm di atas dengan nilai yang terus meningkat sebagai berikut,
+
+- 1php-conf.sh (Konfigurasi 1 [Awal])
+
+  - pm.max_children = 5
+  - pm.start_servers = 2
+  - pm.min_spare_servers = 1
+  - pm.max_spare_servers = 3
+
+  ```sh
+  echo '[www]
+  user = www-data
+  group = www-data
+  listen = /run/php/php8.0-fpm.sock
+  listen.owner = www-data
+  listen.group = www-data
+  php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+  php_admin_flag[allow_url_fopen] = off
+
+  pm = dynamic
+  pm.max_children = 5
+  pm.start_servers = 2
+  pm.min_spare_servers = 1
+  pm.max_spare_servers = 3' > /etc/php/8.0/fpm/pool.d/www.conf
+
+  service php8.0-fpm restart
+  ```
+
+- 2php-conf.sh (Konfigurasi 2)
+
+  - pm.max_children = 10
+  - pm.start_servers = 3
+  - pm.min_spare_servers = 2
+  - pm.max_spare_servers = 3
+
+  ```sh
+  echo '[www]
+  user = www-data
+  group = www-data
+  listen = /run/php/php8.0-fpm.sock
+  listen.owner = www-data
+  listen.group = www-data
+  php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+  php_admin_flag[allow_url_fopen] = off
+
+  pm = dynamic
+  pm.max_children = 10
+  pm.start_servers = 3
+  pm.min_spare_servers = 2
+  pm.max_spare_servers = 3' > /etc/php/8.0/fpm/pool.d/www.conf
+
+  service php8.0-fpm restart
+  ```
+
+- 3php-conf.sh (Konfigurasi 3)
+
+  - pm.max_children = 50
+  - pm.start_servers = 5
+  - pm.min_spare_servers = 3
+  - pm.max_spare_servers = 10
+
+  ```sh
+  echo '[www]
+  user = www-data
+  group = www-data
+  listen = /run/php/php8.0-fpm.sock
+  listen.owner = www-data
+  listen.group = www-data
+  php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+  php_admin_flag[allow_url_fopen] = off
+
+  pm = dynamic
+  pm.max_children = 50
+  pm.start_servers = 5
+  pm.min_spare_servers = 3
+  pm.max_spare_servers = 10' > /etc/php/8.0/fpm/pool.d/www.conf
+
+  service php8.0-fpm restart
+  ```
+
+- 4php-conf.sh (Konfigurasi 4)
+
+  - pm.max_children = 100
+  - pm.start_servers = 10
+  - pm.min_spare_servers = 5
+  - pm.max_spare_servers = 20
+
+  ```sh
+  echo '[www]
+  user = www-data
+  group = www-data
+  listen = /run/php/php8.0-fpm.sock
+  listen.owner = www-data
+  listen.group = www-data
+  php_admin_value[disable_functions] = exec,passthru,shell_exec,system
+  php_admin_flag[allow_url_fopen] = off
+
+  pm = dynamic
+  pm.max_children = 100
+  pm.start_servers = 10
+  pm.min_spare_servers = 5
+  pm.max_spare_servers = 20' > /etc/php/8.0/fpm/pool.d/www.conf
+
+  service php8.0-fpm restart
+  ```
+
+2. Jalankan script yang sama di ketiga worker Laravel untuk mengatur konfigurasi sebelum melakukan apache benchmarking test, contoh bila ingin menggunakan konfigurasi 2,
+
+```sh
+bash /root/1php-conf.sh
+```
+
+3. Lakukan apache benchmarking lagi ke http://riegel.canyon.a07.com dengan jumlah request 100 dan 10 request / second terhadap salah satu endpoint selain register (karena registrasi akun yang sama hanya akan mengembalikan error sehingga waktu respon tiap requestnya akan terlalu sebentar untuk diobservasi). Saya memilih `/auth/login` dengan script sebagai berikut,
+
+```sh
+ab -n 100 -c 10 -T 'application/json' -p input.json -g log-data.data http://riegel.canyon.a07.com/api/auth/login
+```
+
+### Results
+
+1. Konfigurasi 1
+   ![Result 1 (19)](https://cdn.discordapp.com/attachments/1174671276728651806/1174677033368948857/image.png?ex=6568763d&is=6556013d&hm=5e6aa6f1893a94a4328c696a05a041661b8eea0c40c36d48c35c3692b78203e4&)
+
+2. Konfigurasi 2
+   ![Result 2 (19)](https://cdn.discordapp.com/attachments/1174671276728651806/1174677398231453736/image.png?ex=65687694&is=65560194&hm=c615c92895e51c48c3fd9b263aeb8cd18530fe65030f8dd4fa372fe108a335f4&)
+
+3. Konfigurasi 3
+   ![Result 3 (19)](https://cdn.discordapp.com/attachments/1174671276728651806/1174677632357511168/image.png?ex=656876cc&is=655601cc&hm=058a1bdd30245b1871db980bf44793d653c2665c7f9914edf24415667e857588&)
+
+4. Konfigurasi 4
+   ![Result 4 (19)](https://cdn.discordapp.com/attachments/1174671276728651806/1174677810015645716/image.png?ex=656876f6&is=655601f6&hm=ecdf1ba3f2e8a3ef56b87184e6c039aa948c453350c4b707e4782736bb3422bc&)
+
+Waktu total yang dibutuhkan serta waktu per request lebih kecil dengan semakin dinaikkannya setiap atribut dari konfigurasi yang ada.
+
+Menunjukkan peningkatan kinerja dengan dinaikannya atribut-atribut pm.max_children (jumlah maksimum worker (proses anak) yang dapat berjalan secara bersamaan), pm.start_servers (jumlah worker yang akan dimulai secara otomatis ketika php-fpm pertama kali dijalankan), pm.min_spare_servers (jumlah minimum worker yang tetap berjalan saat jalannya server), dan pm.max_spare_servers (jumlah maksimum worker yang dapat berjalan tetapi tidak menangani permintaan).
+
+## Soal 20
+
+> Nampaknya hanya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa dari worker maka implementasikan Least-Conn pada Eisen. Untuk testing kinerja dari worker tersebut dilakukan sebanyak 100 request dengan 10 request/second.
+
+### Scripts
+
+1. Tambahkan 1 baris pada konfigurasi nginx Eisen untuk riegel.canyon.a07.com di `/etc/nginx/sites-available/lb-proxy`
+
+```nginx
+upstream riegel {
+        least_conn;
+        server 192.172.4.1;
+        server 192.172.4.2;
+        server 192.172.4.3;
+}
+```
+
+2. Jalankan script yang sama di ketiga worker Laravel untuk mengatur konfigurasi sebelum melakukan apache benchmarking test. Dalam hal ini kami menggunakan 2 konfigurasi saja yakni konfigurasi awal dan konfigurasi 4 (terburuk dan terbaik)
+
+```sh
+bash /root/1php-conf.sh
+
+atau
+
+bash /root/4php-conf.sh
+```
+
+3. Lakukan apache benchmarking lagi ke http://riegel.canyon.a07.com dengan jumlah request 100 dan 10 request / second terhadap salah satu endpoint selain register (karena registrasi akun yang sama hanya akan mengembalikan error sehingga waktu respon tiap requestnya akan terlalu sebentar untuk diobservasi). Saya memilih `/auth/login` dengan script sebagai berikut,
+
+```sh
+ab -n 100 -c 10 -T 'application/json' -p input.json -g log-data.data http://riegel.canyon.a07.com/api/auth/login
+```
+
+### Results
+
+1. Konfigurasi 1
+   ![Result 1 (20)](https://cdn.discordapp.com/attachments/1174671276728651806/1175711158909554790/image.png?ex=656c3957&is=6559c457&hm=3dbb0bbe6effc11959a81ac6e3d30e612f4c0a75aaff627f2087f0781222b74a&)
+
+2. Konfigurasi 4
+   ![Result 2 (20)](https://cdn.discordapp.com/attachments/1174671276728651806/1175711331580653568/image.png?ex=656c3981&is=6559c481&hm=53871a0eb224a141a35b565fa00e255fbb1fb7c802d06675221fd628bf07f7a9&)
+
+Implementasi Algoritma Load Balancing Least Connection terbukti berhasil menurunkan jumlah total waktu serta waktu per request yang ada. Terbukti dari penurunan yang dicoba terhadap konfigurasi awal dan konfigurasi tertinggi. Beberapa kali percobaan pun tetap menunjukkan hasil yang memang lebih baik dari sebelumnya.
