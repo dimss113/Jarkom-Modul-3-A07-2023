@@ -848,13 +848,29 @@ ab -n 1000 -c 100 http://granz.channel.com/
 
 ```
 
+3. Ubah upsteram granz menjadi weighted round robin dengan perbandingan lawine(4), linie(2), dan lugner(1), sebagai berikut di `/etc/nginx/sites-available/lb-proxy`
+
+```sh
+ upstream granz  {
+        #least_conn;
+        #ip_hash;
+        #hash $request_uri consistent;
+        server 192.172.3.1 weight=4;
+        server 192.172.3.2 weight=2;
+        server 192.172.3.3 weight=1;
+
+        #server 192.172.3.1; #IP Lawine
+        #server 192.172.3.2; #IP Linie
+        #server 192.172.3.3; #IP Lugner
+ }
+
+```
+
 ## Result
+<img width="361" alt="image" src="https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/78305872-5ce2-4389-9208-4f932207c808">
 
-![unnamed](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/aa7e7057-1a71-44ee-bd0d-b2f4fd4f4121)
+<img width="947" alt="image" src="https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/b7b8a9c8-92de-4ad0-b63c-53fb709b917c">
 
-![unnamed (1)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/5a522c10-4a01-4f31-b699-84b94a8205de)
-
-![unnamed (2)](https://github.com/dimss113/Jarkom-Modul-3-A07-2023/assets/89715780/29f78f3c-526d-47a3-a711-0db38240422d)
 
 ## Soal 8
 
